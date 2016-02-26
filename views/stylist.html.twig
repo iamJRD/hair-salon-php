@@ -16,7 +16,7 @@
                 <h4>Here are all of {{ stylist.getStylistName }}'s clients:</h4>
                     <ul>
                         {% for client in clients %}
-                            <li><a href="/client_edit">{{ client.getClientName }}</a> --- <a href="tel:+1{{ client.getClientPhoneNumber }}">{{ client.getClientPhoneNumber }}</a></li>
+                            <li><a href="/client/{{ client.getId }}/edit">{{ client.getClientName }}</a> --- <a href="tel:+1{{ client.getClientPhoneNumber }}">{{ client.getClientPhoneNumber }}</a></li>
                         {% endfor %}
                     </ul>
             {% else %}

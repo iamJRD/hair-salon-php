@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+        <title>Update {{ client.getClientName }}</title>
+    </head>
+    <body>
+        <div class="container">
+            <h2>{{ client.getClientName }}</h2>
+            <h4>{{ client.getClientPhoneNumber }}</h4>
+
+            <h5>Edit {{ client.getClientName }}'s info</h5>
+        <!-- START STYLIST EDIT FORM -->
+            <div class="row">
+                <form class="col s12" action="/client/{{ client.getId }}" method="post">
+                    <input type="hidden" name="_method" value="patch">
+                    <input type="hidden" name="client_id" value="{{ client.getId }}">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <label for="name">Client's Name</label>
+                            <input name="name" type="text" class="validate" value="{{ client.getClientName }}" required>
+                        </div>
+                        <div class="input-field col s6">
+                            <label for="phone_number">Client's Phone Number</label>
+                            <input name="phone_number" type="tel" class="validate" value="{{ client.getClientPhoneNumber }}" required>
+                        </div>
+                    </div>
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Update</button>
+                </form>
+            </div>
+        <!-- END FORM -->
+            <h5>Delete this client from your database here:</h5>
+        <!-- START STYLIST DELETE -->
+            <div class="row">
+                <form class="col s12" action="/client/{{ client.getId }}/deleted" method="post">
+                    <input type="hidden" name="_method" value="delete">
+                    <input type="hidden" name="client_id" value="{{ client.getId }}">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Delete!</button>
+                </form>
+            </div>
+            <p><a href="/">Click here</a> to go back to the homepage and cancel any changes.</p>
+        </div>
+    </body>
+</html>
