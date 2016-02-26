@@ -193,5 +193,25 @@
             $this->assertEquals([$test_client2], $result);
         }
 
+        function testUpdateClient()
+        {
+            // Arrange
+            $client_name = 'Jared';
+            $client_phone_number = '5033123649';
+            $id = null;
+            $stylist_id = 1;
+            $test_client = new Client($client_name, $client_phone_number, $id, $stylist_id);
+            $test_client->save();
+
+            $updated_client_name = 'Jerome';
+            $updated_client_phone_number = '1234567890';
+
+            // Act
+            $test_client->updateClient($updated_client_name, $updated_client_phone_number);
+
+            // Assert
+            $this->assertEquals(['Jerome', '1234567890'], [$test_client->getClientName(), $test_client->getClientPhoneNumber()]);
+        }
+
     }
 ?>

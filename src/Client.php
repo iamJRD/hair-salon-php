@@ -87,5 +87,12 @@
         {
             $GLOBALS['DB']->exec("DELETE FROM client WHERE id = {$this->getId()};");
         }
+
+        function updateClient($updated_client_name, $updated_client_phone_number)
+        {
+            $GLOBALS['DB']->exec("UPDATE client SET name = '{$updated_client_name}', phone_number = {$updated_client_phone_number} WHERE id = {$this->getId()};");
+            $this->setClientName($updated_client_name);
+            $this->setClientPhoneNumber($updated_client_phone_number);
+        }
     }
 ?>
