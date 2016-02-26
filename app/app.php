@@ -29,5 +29,24 @@
         return $app['twig']->render('index.html.twig', array('stylists' => $stylists));
     });
 
+    $app->get('/stylist/{id}', function($id) use ($app) {
+        $stylist = Stylist::find($id);
+        $clients = $stylist->getClients();
+
+        return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $clients));
+    });
+
+    $app->post('/add_client', function() use ($app) {
+        $name = $_POST['name'];
+        $phone_number = $_POST['phone_number'];
+        $stylist_id = $_POST['stylist_id'];
+
+        $client = new Client($name, $phone_number, $id = null, $stylist_id);
+        $client->save();
+        $stylist = Stylist::find($stylist_id);
+
+        return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
+    });
+
     return $app;
 ?>
