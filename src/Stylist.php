@@ -97,5 +97,11 @@
             $this->setStylistPhoneNumber($updated_stylist_phone_number);
         }
 
+        function deleteStylist()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM stylist WHERE id = {$this->getId()};");
+            $GLOBALS['DB']->exec("DELETE FROM client WHERE stylist_id = {$this->getId()};");
+        }
+
     }
 ?>
