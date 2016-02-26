@@ -90,5 +90,12 @@
             return $clients;
         }
 
+        function updateStylist($updated_stylist_name, $updated_stylist_phone_number)
+        {
+            $GLOBALS['DB']->exec("UPDATE stylist SET name = '{$updated_stylist_name}', phone_number = {$updated_stylist_phone_number} WHERE id = {$this->getId()};");
+            $this->setStylistName($updated_stylist_name);
+            $this->setStylistPhoneNumber($updated_stylist_phone_number);
+        }
+
     }
 ?>

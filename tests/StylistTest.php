@@ -167,5 +167,24 @@
             $this->assertEquals([$test_client], $result);
         }
 
+        function testUpdateStylist()
+        {
+            // Arrange
+            $stylist_name = 'Ann';
+            $stylist_phone_number = '5555555555';
+            $id = null;
+            $test_stylist = new Stylist($stylist_name, $stylist_phone_number, $id);
+            $test_stylist->save();
+
+            $updated_stylist_name = 'Anna';
+            $updated_stylist_phone_number = '1234567890';
+
+            // Act
+            $test_stylist->updateStylist($updated_stylist_name, $updated_stylist_phone_number);
+
+            // Assert
+            $this->assertEquals(['Anna', '1234567890'], [$test_stylist->getStylistName(), $test_stylist->getStylistPhoneNumber()]);
+        }
+
     }
 ?>
