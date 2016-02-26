@@ -1,6 +1,6 @@
 <?php
-    require_once 'src/Client';
-    require_once 'src/Stylist';
+    require_once 'src/Client.php';
+    require_once 'src/Stylist.php';
 
     /**
     * @backupGlobals disabled
