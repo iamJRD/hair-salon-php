@@ -43,5 +43,31 @@
         {
             return $this->stylist_id;
         }
+// END SETTERS/GETTERS
+        function save()
+        {
+            $GLOBALS['DB']->exec("INSERT INTO client (name, phone_number, stylist_id) VALUES ('{$this->getClientName()}', {$this->getClientPhoneNumber()}, {$this->getStylistId()});");
+            $this->id = $GLOBALS['DB']->lastInsertId();
+        }
+
+        static function deleteAll()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM client;");
+        }
+
+        static function getAll()
+        {
+            $returned_clients = $GLOBALS['DB']->query("SELECT * FROM client;");
+            $clients = array();
+            foreach ($returned_clients as $client) {
+                $name = $client['name'];
+                $phone_number = $client['phone_number'];
+                $id = $client['id'];
+                $stylist_id = $client['stylist_id'];
+                $new_client = new Client($name, $phone_number, $id, $stylist_id);
+                array_push($clients, $new_client);
+            }
+            return $clients;
+        }
     }
 ?>

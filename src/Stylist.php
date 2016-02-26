@@ -36,7 +36,7 @@
         {
             return $this->id;
         }
-
+// END SETTERS/GETTERS
         function save()
         {
             $GLOBALS['DB']->exec("INSERT INTO stylist (name, phone_number) VALUES ('{$this->getStylistName()}', {$this->getStylistPhoneNumber()});");
@@ -61,9 +61,6 @@
         {
             $GLOBALS['DB']->exec("DELETE FROM stylist");
         }
-
-
-
 
     }
 ?>
