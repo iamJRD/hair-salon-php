@@ -139,5 +139,33 @@
             $this->assertEquals($test_stylist, $result);
         }
 
+        function testGetClients()
+        {
+            // Arrange
+            $stylist_name = 'Ann';
+            $stylist_phone_number = '5555555555';
+            $id = null;
+            $test_stylist = new Stylist($stylist_name, $stylist_phone_number, $id);
+            $test_stylist->save();
+
+            $client_name = 'Jared';
+            $client_phone_number = '5033123649';
+            $stylist_id = $test_stylist->getId();
+            $test_client = new Client($client_name, $client_phone_number, $id, $stylist_id);
+            $test_client->save();
+
+            $client_name2 = 'Bob';
+            $client_phone_number2 = '5033307236';
+            $stylist_id = null;
+            $test_client2 = new Client($client_name, $client_phone_number, $id, $stylist_id);
+            $test_client2->save();
+
+            // Act
+            $result = $test_stylist->getClients();
+
+            // Assert
+            $this->assertEquals([$test_client], $result);
+        }
+
     }
 ?>
