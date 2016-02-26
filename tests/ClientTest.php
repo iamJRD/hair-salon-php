@@ -88,6 +88,23 @@
             $this->assertEquals($stylist_id, $result);
         }
 
+        function testSave()
+        {
+            // Arrange
+            $client_name = 'Jared';
+            $client_phone_number = '5033123649';
+            $id = null;
+            $stylist_id = 1;
+            $test_client = new Client($client_name, $client_phone_number, $id, $stylist_id);
+
+            // Act
+            $test_client->save();
+            $result = Client::getAll();
+
+            // Assert
+            $this->assertEquals($test_client, $result[0]);
+        }
+
         function testGetAll()
         {
             // Arrange
@@ -110,5 +127,6 @@
             // Assert
             $this->assertEquals([$test_client, $test_client2], $result);
         }
+
     }
 ?>
