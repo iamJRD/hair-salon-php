@@ -123,5 +123,21 @@
             $this->assertEquals([], $result);
         }
 
+        function testFind()
+        {
+            // Arrange
+            $stylist_name = 'Ann';
+            $stylist_phone_number = '5555555555';
+            $id = null;
+            $test_stylist = new Stylist($stylist_name, $stylist_phone_number, $id);
+            $test_stylist->save();
+
+            // Act
+            $result = Stylist::find($test_stylist->getId());
+
+            // Assert
+            $this->assertEquals($test_stylist, $result);
+        }
+
     }
 ?>
