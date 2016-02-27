@@ -20,7 +20,7 @@
                     {% endfor %}
                 </ul>
             {% else %}
-                <h3>You haven't added any stylists yet! Use the form below to get started!</h3>
+                <h4>You haven't added any stylists yet! Use the form below to get started!</h4>
             {% endif %}
 <!-- END STYLIST LIST -->
 <!-- START ADD STYLIST FORM -->
@@ -40,6 +40,11 @@
                 </form>
             </div>
 <!-- END FORM -->
+            <div class="row">
+                <form class="col s12" action="/delete_all" method="post">
+                    <button class="btn waves-effect waves-light delete-button" type="submit" name="action">Delete ALL Stylists</button>
+                </form>
+            </div>
         </div>
     </body>
 </html>

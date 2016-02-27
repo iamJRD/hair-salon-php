@@ -95,5 +95,11 @@
         return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
     });
 
+    $app->post('/delete_all', function() use ($app) {
+        Stylist::deleteAll();
+
+        return $app['twig']->render('index.html.twig');
+    });
+
     return $app;
 ?>

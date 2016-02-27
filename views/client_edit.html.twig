@@ -14,7 +14,7 @@
             <h4>{{ client.getClientPhoneNumber }}</h4>
 
             <h5>Edit {{ client.getClientName }}'s info</h5>
-        <!-- START STYLIST EDIT FORM -->
+<!-- START STYLIST EDIT FORM -->
             <div class="row">
                 <form class="col s12" action="/client/{{ client.getId }}" method="post">
                     <input type="hidden" name="_method" value="patch">
@@ -32,9 +32,9 @@
                     <button class="btn waves-effect waves-light submit-button" type="submit" name="action">Update</button>
                 </form>
             </div>
-        <!-- END FORM -->
+<!-- END FORM -->
             <h5>Delete this client from your database here:</h5>
-        <!-- START STYLIST DELETE -->
+<!-- START STYLIST DELETE -->
             <div class="row">
                 <form class="col s12" action="/client/{{ client.getId }}/deleted" method="post">
                     <input type="hidden" name="_method" value="delete">
@@ -42,6 +42,7 @@
                     <button class="btn waves-effect waves-light delete-button" type="submit" name="action">Delete</button>
                 </form>
             </div>
+<!-- END STYLIST DELETE -->
             <p><a href="/" class="bottom-links">Click here</a> to go back to the homepage and cancel any changes.</p>
         </div>
     </body>
