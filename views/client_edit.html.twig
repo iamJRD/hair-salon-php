@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+        <link rel="stylesheet" href="/css/styles.css" type="text/css">
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
         <title>Update {{ client.getClientName }}</title>
@@ -28,7 +29,7 @@
                             <input name="phone_number" type="tel" class="validate" value="{{ client.getClientPhoneNumber }}" required>
                         </div>
                     </div>
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Update</button>
+                    <button class="btn waves-effect waves-light submit-button" type="submit" name="action">Update</button>
                 </form>
             </div>
         <!-- END FORM -->
@@ -38,10 +39,10 @@
                 <form class="col s12" action="/client/{{ client.getId }}/deleted" method="post">
                     <input type="hidden" name="_method" value="delete">
                     <input type="hidden" name="client_id" value="{{ client.getId }}">
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Delete!</button>
+                    <button class="btn waves-effect waves-light delete-button" type="submit" name="action">Delete</button>
                 </form>
             </div>
-            <p><a href="/">Click here</a> to go back to the homepage and cancel any changes.</p>
+            <p><a href="/" class="bottom-links">Click here</a> to go back to the homepage and cancel any changes.</p>
         </div>
     </body>
 </html>

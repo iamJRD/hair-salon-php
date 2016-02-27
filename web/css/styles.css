@@ -1,0 +1,58 @@
+body {
+    text-align: center;
+    background-color: #FDA;
+    font-family: Geneva;
+}
+
+ul {
+    text-align: left;
+}
+
+.delete-button {
+    background-color: #551D00;
+}
+
+.delete-button:hover {
+    background-color: #803915;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: #2B4C6F;
+}
+
+h1 {
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+a {
+    color: #551D00;
+}
+
+a:hover {
+    color: #D48E6A;
+}
+
+.submit-button {
+    background-color: #03553E;
+}
+
+.submit-button:hover {
+    background-color: #71AA97;
+}
+
+.input-field label {
+    font-size: 12px;
+}
+
+.bottom-links {
+    color: #71AA97;
+}
+
+.bottom-links:hover {
+    color: #03553E;
+}
